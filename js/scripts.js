@@ -15,7 +15,7 @@ var app = new Vue({
     computed: {
         formatted_students: function() {
             return this.students.sort((a,b) => {
-                return a.execution_time - b.execution_time
+                return a['execution time (ms)'] - b['execution time (ms)']
             }).map(s => {
                 return {
                     ...s,
