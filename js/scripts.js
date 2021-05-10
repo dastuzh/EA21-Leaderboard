@@ -17,6 +17,13 @@ var app = new Vue({
             const result = this.students.sort((a,b) => {
                 return a['execution time (ms)'] - b['execution time (ms)']
             }).map(s => {
+                if (s.repository == "Postgres") {
+                    return {
+                        ...s,
+                        ['preprocessing time (ms)']: "N/A",
+                        ['execution time (ms)']: this.numberWithCommas(s['execution time (ms)']),
+                    }
+                } else 
                 return {
                     ...s,
                     ['preprocessing time (ms)']: this.numberWithCommas(s['preprocessing time (ms)']),
@@ -24,14 +31,6 @@ var app = new Vue({
                 }
             })
 
-            result.push({
-                "repository": "Postgres",
-                "preprocessing time (ms)": "N/A",
-                "execution time (ms)": "217,034",
-                "submission time": "01/05/2021 00:00:00",
-                "update time": "10/05/2021 12:44:47",
-                "timestamp": "1620546287"
-            })
             return result
         }
     },

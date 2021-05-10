@@ -14,6 +14,14 @@ const students=[
         "submission time": "10/05/2021 09:06:10",
         "update time": "10/05/2021 11:34:14",
         "timestamp": "1620639254"
+    },
+    {
+        "repository": "Postgres",
+        "preprocessing time (ms)": "0",
+        "execution time (ms)": "217034",
+        "submission time": "01/05/2021 00:00:00",
+        "update time": "10/05/2021 12:44:47",
+        "timestamp": "1620546287"
     }
 ]
         
