@@ -16,15 +16,24 @@ var app = new Vue({
     },
     computed: {
         formatted_students: function() {
-            return this.students.sort((a,b) => {
+            const result = this.students.sort((a,b) => {
                 return a['execution time (ms)'] - b['execution time (ms)']
             }).map(s => {
+                if (s.repository == "Postgres") {
+                    return {
+                        ...s,
+                        ['preprocessing time (ms)']: "N/A",
+                        ['execution time (ms)']: this.numberWithCommas(s['execution time (ms)']),
+                    }
+                } else 
                 return {
                     ...s,
                     ['preprocessing time (ms)']: this.numberWithCommas(s['preprocessing time (ms)']),
                     ['execution time (ms)']: this.numberWithCommas(s['execution time (ms)']),
                 }
             })
+
+            return result
         }
     },
     methods: {
