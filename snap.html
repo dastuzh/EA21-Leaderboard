@@ -37,7 +37,7 @@
             <div >
                 <h1 class="mt-5">SNAP</h1>
                 <p><strong>Last Update Time: {{last_update_time}}</strong></p>
-                <p>The leaderboard is ordered by the your total <strong>execution time</strong>  over all queries on the private datasets in ascending order. </p>
+                <p>The following tables show the execution time (ms) of the queries on the snap datasets. The tables are ordered by the total execution time over all queries on the corresponding dataset in ascending order. </p>
 
             </div>
 
@@ -53,7 +53,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="(student, i) in formatted_students">
+                  <tr v-for="(student, i) in formatted_students.sort((s_a,s_b) => snap_queries.map(a => parseInt(s_a[dataset + '-' + a])).reduce((a,b) => a +b, 0) - snap_queries.map(a => parseInt(s_b[dataset + '-' + a])).reduce((a,b) => a +b, 0))">
                     <th scope="row">{{i+1}}</th>
                     <td>{{student.repository}}</td>
                     <td class="text-right">{{snap_queries.map(a => parseInt(student[dataset + '-' + a])).reduce((a,b) => a +b, 0)}}</td>

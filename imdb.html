@@ -41,8 +41,7 @@
     <div>
       <h1 class="mt-5">IMDB</h1>
       <p><strong>Last Update Time: {{last_update_time}}</strong></p>
-      <p>The leaderboard is ordered by the your total <strong>execution time</strong> over all queries on the private
-        datasets in ascending order. </p>
+      <p>The table shows the execution time (ms) of the queries on the IMDB dataset. The table is ordered by the total execution of the queries. </p>
       <table class="table table-hover table-sm">
         <thead>
           <tr>
@@ -57,7 +56,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(student, i) in formatted_students">
+          <tr v-for="(student, i) in formatted_students.sort((a,b) => a.query1 +a.query2+a.query3+a.query4+a.query5-b.query1-b.query2-b.query3-b.query4-b.query5)">
             <th scope="row">{{i+1}}</th>
             <td>{{student.repository}}</td>
             <td class="text-right ">
