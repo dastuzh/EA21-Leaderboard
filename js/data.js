@@ -104,7 +104,7 @@ const students=[
         "enron-1-path-count": "60",
         "enron-2-path-full": "11768",
         "enron-2-path-count": "814",
-        "query1": "78221",
+        "query1": "8745",
         "query2": "3636",
         "query3": "1011",
         "query4": "825",
