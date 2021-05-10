@@ -10,7 +10,9 @@ var app = new Vue({
     el: '#app',
     data: {
         students,
-        last_update_time
+        last_update_time,
+        snap_queries: ["triangle-full", "triangle-count", "1-path-full", "1-path-count", "2-path-full", "2-path-count"],
+        snap_datasets: ["facebook", "twitter", "wiki", "enron"],
     },
     computed: {
         formatted_students: function() {
