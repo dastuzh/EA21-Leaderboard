@@ -40,6 +40,30 @@
                 <p>The following tables show the execution time (ms) of the queries on the snap datasets. The tables are ordered by the total execution time over all queries on the corresponding dataset in ascending order. </p>
 
             </div>
+            
+            <div>
+              <p><strong>SNAP Overall</strong></p>
+              <table class="table table-hover table-sm">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Repository</th>
+                    <th class="text-right " scope="col">Total</th>
+                    <th v-for="query in snap_queries" class="text-right " scope="col">{{query}}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="(student, i) in snap_overall_students.sort((s_a,s_b) => snap_queries.map(q => s_a[q]).reduce((a,b) => a+b, 0) - snap_queries.map(q => s_b[q]).reduce((a,b) => a+b, 0))">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{student.repository}}</td>
+                    <td class="text-right">{{snap_queries.map(q => student[q]).reduce((a,b) => a+b, 0)}}</td>
+                    <td v-for="query in snap_queries" class="text-right ">{{student[query]}}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <br>
+            </div>
 
             <div v-for="dataset in snap_datasets">
               <p><strong>SNAP {{dataset}}</strong></p>

@@ -34,6 +34,20 @@ var app = new Vue({
             })
 
             return result
+        },
+        snap_overall_students: function() {
+            const self = this
+            return this.students.map(s => {
+                return {
+                    ...s,
+                    ['triangle-full']: self.snap_datasets.map(d => parseInt(s[d+"-"+'triangle-full'])).reduce((a,b) => a+b,0),
+                    ['triangle-count']: self.snap_datasets.map(d => parseInt(s[d+"-"+'triangle-count'])).reduce((a,b) => a+b,0),
+                    ['1-path-full']: self.snap_datasets.map(d => parseInt(s[d+"-"+'1-path-full'])).reduce((a,b) => a+b,0),
+                    ['1-path-count']: self.snap_datasets.map(d => parseInt(s[d+"-"+'1-path-count'])).reduce((a,b) => a+b,0),
+                    ['2-path-full']: self.snap_datasets.map(d => parseInt(s[d+"-"+'2-path-full'])).reduce((a,b) => a+b,0),
+                    ['2-path-count']: self.snap_datasets.map(d => parseInt(s[d+"-"+'2-path-count'])).reduce((a,b) => a+b,0),
+                }
+            })
         }
     },
     methods: {
