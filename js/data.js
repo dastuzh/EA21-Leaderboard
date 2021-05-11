@@ -1,5 +1,4 @@
-const students=[
-    {
+const students = [{
         "repository": "EA21-17",
         "preprocessing time (ms)": "443949",
         "execution time (ms)": "293600",
@@ -73,85 +72,7 @@ const students=[
         "query4": "38007",
         "query5": "79491"
     },
-    {
-        "repository": "Postgres (Sequential)",
-        "preprocessing time (ms)": "0",
-        "execution time (ms)": "217034",
-        "submission time": "01/05/2021 00:00:00",
-        "update time": "10/05/2021 12:44:47",
-        "timestamp": "1620546287",
-        "facebook-triangle-full": "13641",
-        "facebook-triangle-count": "9512",
-        "facebook-1-path-full": "86",
-        "facebook-1-path-count": "42",
-        "facebook-2-path-full": "5932",
-        "facebook-2-path-count": "836",
-        "twitter-triangle-full": "19456",
-        "twitter-triangle-count": "14950",
-        "twitter-1-path-full": "667",
-        "twitter-1-path-count": "141",
-        "twitter-2-path-full": "15431",
-        "twitter-2-path-count": "938",
-        "wiki-triangle-full": "2469",
-        "wiki-triangle-count": "2179",
-        "wiki-1-path-full": "54",
-        "wiki-1-path-count": "29",
-        "wiki-2-path-full": "1378",
-        "wiki-2-path-count": "191",
-        "enron-triangle-full": "15829",
-        "enron-triangle-count": "14191",
-        "enron-1-path-full": "187",
-        "enron-1-path-count": "60",
-        "enron-2-path-full": "11768",
-        "enron-2-path-count": "814",
-        "query1": "7013.408",
-        "query2": "7560.316",
-        "query3": "2473.532",
-        "query4": "2435.805",
-        "query5": "6172.665"
-    },
-    {
-        "repository": "Postgres (8 threads)",
-        "preprocessing time (ms)": "0",
-        "execution time (ms)": "217034",
-        "submission time": "01/05/2021 00:00:00",
-        "update time": "10/05/2021 12:44:47",
-        "timestamp": "1620546287",
-        "facebook-triangle-count": 9546.565,
-"wiki-triangle-count": 2206.257,
-"enron-triangle-count": 25649.800,
-"twitter-triangle-count": 44403.052,
-"facebook-triangle-full": 13660.400,
-"wiki-triangle-full": 2482.025,
-"enron-triangle-full": 27598.338,
-"twitter-triangle-full": 50720.877,
-"facebook-1-path-count": 43.470,
-"wiki-1-path-count": 30.524,
-"enron-1-path-count": 96.027,
-"twitter-1-path-count": 330.135,
-"facebook-1-path-full": 88.465,
-"wiki-1-path-full": 55.135,
-"enron-1-path-full": 200.813,
-"twitter-1-path-full": 663.064,
-"facebook-2-path-count": 819.974,
-"wiki-2-path-count": 188.697,
-"enron-2-path-count": 1574.354,
-"twitter-2-path-count": 2796.514,
-"facebook-2-path-full": 5920.068,
-"wiki-2-path-full": 1369.015,
-"enron-2-path-full": 17704.431,
-"twitter-2-path-full": 24880.729,
-        "query1": "7013.408",
-        "query2": "7560.316",
-        "query3": "2473.532",
-        "query4": "2435.805",
-        "query5": "6172.665"
-    }
+    
 ]
-        
-        const last_update_time='10/05/2021 14:54:01'
 
-
-
-
-        
+const last_update_time = '10/05/2021 14:54:01'
