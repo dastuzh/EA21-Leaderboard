@@ -38,7 +38,7 @@
                 <h1 class="mt-5">Practical Leaderboard</h1>
                 <p><strong>Last Update Time: {{last_update_time}}</strong></p>
                 <p>We check your code on our private datasets every midnight. The feedback of the code will be uploaded to your GitHub repository. If your code is correct, we will upload your benchmarking results to this leaderboard. The first time you check in your code, please send me an email so I know you have finished your program and I will manually run it on the machine to make sure the setup is ok.</p>
-                <p>The table shows the total preprocessing time and the execution time of all queries on our privates datasets. The preprocessing time includes the time for reading data, parsing data and constructing the factors. The execution time includes time for evaluating the queries and outputting the query results. <strong>We use only the execution time to assess your code. </strong> 
+                <p>The table shows the total preprocessing time (ms) and the execution time (ms) of the queries on our privates datasets. The preprocessing time includes the time for reading data, parsing data and constructing the factors. The execution time includes time for evaluating the queries and outputting the query results. The columns overall execution, cyclic execution and acyclic execution show the evaluation time of all queries, cyclic queries and acyclic queries, respectively. <strong>We use only the execution time to assess your code. </strong> 
                 </p>
                 <p>
                   The table is ordered by the your total <strong>execution time</strong>  in ascending order. Check the execution of individual queries at pages <a href="./snap.html">SNAP</a> and <a href="./imdb.html">IMDB</a>. </p>
@@ -47,7 +47,7 @@
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">Repository</th>
-                        <th class="text-right " scope="col">Preprocessing</th>
+                        <th class="text-right " scope="col">Overall Preprocessing</th>
                         <th class="text-right " scope="col">Overall Execution</th>
                         <th class="text-right " scope="col">Cyclic Execution</th>
                         <th class="text-right " scope="col">Acyclic Execution</th>

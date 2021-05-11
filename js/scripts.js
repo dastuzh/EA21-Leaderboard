@@ -101,16 +101,16 @@ var app = new Vue({
                         ...s,
                         ['preprocessing time (ms)']: "N/A",
                         ['execution time (ms)']: this.numberWithCommas(s['execution time (ms)']),
-                        cyclic_execution: this.cyclic_queries.map(q => s[q]).reduce((a,b) => parseInt(a) + parseInt(b), 0),
-                        acyclic_execution: parseInt(s['execution time (ms)']) - this.cyclic_queries.map(q => s[q]).reduce((a,b) => parseInt(a) + parseInt(b), 0),
+                        cyclic_execution: this.numberWithCommas(this.cyclic_queries.map(q => s[q]).reduce((a,b) => parseInt(a) + parseInt(b), 0)),
+                        acyclic_execution: this.numberWithCommas(parseInt(s['execution time (ms)']) - this.cyclic_queries.map(q => s[q]).reduce((a,b) => parseInt(a) + parseInt(b), 0)),
                     }
                 } else 
                 return {
                     ...s,
                     ['preprocessing time (ms)']: this.numberWithCommas(s['preprocessing time (ms)']),
-                    ['execution time (ms)']: this.numberWithCommas(s['execution time (ms)']),
-                    cyclic_execution: this.cyclic_queries.map(q => s[q]).reduce((a,b) => parseInt(a) + parseInt(b), 0),
-                        acyclic_execution: parseInt(s['execution time (ms)']) - this.cyclic_queries.map(q => s[q]).reduce((a,b) => parseInt(a) + parseInt(b), 0),
+                    ['execution time (ms)']: this.numberWithCommas(this.numberWithCommas(s['execution time (ms)'])),
+                    cyclic_execution: this.numberWithCommas(this.cyclic_queries.map(q => s[q]).reduce((a,b) => parseInt(a) + parseInt(b), 0)),
+                        acyclic_execution: this.numberWithCommas(parseInt(s['execution time (ms)']) - this.cyclic_queries.map(q => s[q]).reduce((a,b) => parseInt(a) + parseInt(b), 0)),
                 }
             })
 
