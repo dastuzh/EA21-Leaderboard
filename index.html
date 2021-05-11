@@ -47,10 +47,12 @@
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">Repository</th>
-                        <th class="text-right " scope="col">Preprocessing Time (ms)</th>
-                        <th class="text-right " scope="col">Execution Time (ms)</th>
-                        <th class="text-right " scope="col">Submission Time</th>
-                        <th class="text-right " scope="col">Entry Update Time</th>
+                        <th class="text-right " scope="col">Preprocessing</th>
+                        <th class="text-right " scope="col">Overall Execution</th>
+                        <th class="text-right " scope="col">Cyclic Execution</th>
+                        <th class="text-right " scope="col">Acyclic Execution</th>
+                        <th class="text-right " scope="col">Submission</th>
+                        <th class="text-right " scope="col">Entry Update</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -59,6 +61,8 @@
                         <td>{{student.repository}}</td>
                         <td class="text-right ">{{student['preprocessing time (ms)']}}</td>
                         <td class="text-right ">{{student['execution time (ms)']}}</td>
+                        <td class="text-right ">{{student['cyclic_execution']}}</td>
+                        <td class="text-right ">{{student['acyclic_execution']}}</td>
                         <td class="text-right ">{{student['submission time']}}</td>
                         <td class="text-right ">{{student['update time']}}</td>
                       </tr>

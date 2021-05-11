@@ -89,6 +89,7 @@ var app = new Vue({
         last_update_time,
         snap_queries: ["triangle-full", "triangle-count", "1-path-full", "1-path-count", "2-path-full", "2-path-count"],
         snap_datasets: ["facebook", "twitter", "wiki", "enron"],
+        cyclic_queries: ["facebook-triangle-full", "facebook-triangle-count", "twitter-triangle-full", "twitter-triangle-count", "wiki-triangle-full", "wiki-triangle-count", "enron-triangle-full", "enron-triangle-count", ],
     },
     computed: {
         formatted_students: function() {
@@ -100,12 +101,16 @@ var app = new Vue({
                         ...s,
                         ['preprocessing time (ms)']: "N/A",
                         ['execution time (ms)']: this.numberWithCommas(s['execution time (ms)']),
+                        cyclic_execution: this.cyclic_queries.map(q => s[q]).reduce((a,b) => parseInt(a) + parseInt(b), 0),
+                        acyclic_execution: parseInt(s['execution time (ms)']) - this.cyclic_queries.map(q => s[q]).reduce((a,b) => parseInt(a) + parseInt(b), 0),
                     }
                 } else 
                 return {
                     ...s,
                     ['preprocessing time (ms)']: this.numberWithCommas(s['preprocessing time (ms)']),
                     ['execution time (ms)']: this.numberWithCommas(s['execution time (ms)']),
+                    cyclic_execution: this.cyclic_queries.map(q => s[q]).reduce((a,b) => parseInt(a) + parseInt(b), 0),
+                        acyclic_execution: parseInt(s['execution time (ms)']) - this.cyclic_queries.map(q => s[q]).reduce((a,b) => parseInt(a) + parseInt(b), 0),
                 }
             })
 
