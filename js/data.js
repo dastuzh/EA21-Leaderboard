@@ -30,11 +30,11 @@ const students=[
         "enron-1-path-count": "215",
         "enron-2-path-full": "21106",
         "enron-2-path-count": "17033",
-        "query1": "4167",
-        "query2": "3684",
-        "query3": "31555",
-        "query4": "37891",
-        "query5": "24143"
+        "query1": "4167.0",
+        "query2": "3684.0",
+        "query3": "31555.0",
+        "query4": "37891.0",
+        "query5": "24143.0"
     },
     {
         "repository": "EA21-13",
@@ -67,15 +67,52 @@ const students=[
         "enron-1-path-count": "756",
         "enron-2-path-full": "90992",
         "enron-2-path-count": "86459",
-        "query1": "13232",
-        "query2": "67648",
-        "query3": "57278",
-        "query4": "38007",
-        "query5": "79491"
+        "query1": "13232.0",
+        "query2": "67648.0",
+        "query3": "57278.0",
+        "query4": "38007.0",
+        "query5": "79491.0"
+    },
+    {
+        "repository": "EA21-11 (SNAP ONLY)",
+        "preprocessing time (ms)": "10614",
+        "execution time (ms)": "82095",
+        "submission time": "17/05/2021 15:02:08",
+        "update time": "18/05/2021 15:33:24",
+        "timestamp": "1621344804",
+        "facebook-triangle-full": "2300",
+        "facebook-triangle-count": "1375",
+        "facebook-1-path-full": "36",
+        "facebook-1-path-count": "25",
+        "facebook-2-path-full": "2760",
+        "facebook-2-path-count": "1602",
+        "twitter-triangle-full": "9211",
+        "twitter-triangle-count": "7568",
+        "twitter-1-path-full": "533",
+        "twitter-1-path-count": "440",
+        "twitter-2-path-full": "20977",
+        "twitter-2-path-count": "15261",
+        "wiki-triangle-full": "353",
+        "wiki-triangle-count": "278",
+        "wiki-1-path-full": "22",
+        "wiki-1-path-count": "15",
+        "wiki-2-path-full": "710",
+        "wiki-2-path-count": "432",
+        "enron-triangle-full": "2158",
+        "enron-triangle-count": "1710",
+        "enron-1-path-full": "129",
+        "enron-1-path-count": "105",
+        "enron-2-path-full": "8782",
+        "enron-2-path-count": "5313",
+        "query1": "0",
+        "query2": "0",
+        "query3": "0",
+        "query4": "0",
+        "query5": "0"
     }
 ]
         
-        const last_update_time='14/05/2021 08:27:59'
+        const last_update_time='18/05/2021 15:34:23'
 
 
 
