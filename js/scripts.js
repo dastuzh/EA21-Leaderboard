@@ -6,11 +6,99 @@
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
 
+Vue.filter("formatNumber", function (value) {
+    if (value == "N/A") {
+        return "N/A"
+    } else if (Number.isNaN(parseInt(value))) {
+        return "Timeout"
+    }
+
+    return numeral(value).format("0,0"); // displaying other groupings/separators is possible, look at the docs
+    // return value
+  });
+
 var app = new Vue({
     el: '#app',
     data: {
         students: [
             ...students,
+            {
+                "imdb_timeout": true,
+                "repository": "EA21-11",
+                "preprocessing time (ms)": "10614.0",
+                "execution time (ms)": "82095.0",
+                "submission time": "17/05/2021 15:02:08",
+                "update time": "18/05/2021 15:33:24",
+                "timestamp": "1621344804",
+                "facebook-triangle-full": "2300.0",
+                "facebook-triangle-count": "1375.0",
+                "facebook-1-path-full": "36.0",
+                "facebook-1-path-count": "25.0",
+                "facebook-2-path-full": "2760.0",
+                "facebook-2-path-count": "1602.0",
+                "twitter-triangle-full": "9211.0",
+                "twitter-triangle-count": "7568.0",
+                "twitter-1-path-full": "533.0",
+                "twitter-1-path-count": "440.0",
+                "twitter-2-path-full": "20977.0",
+                "twitter-2-path-count": "15261.0",
+                "wiki-triangle-full": "353.0",
+                "wiki-triangle-count": "278.0",
+                "wiki-1-path-full": "22.0",
+                "wiki-1-path-count": "15.0",
+                "wiki-2-path-full": "710.0",
+                "wiki-2-path-count": "432.0",
+                "enron-triangle-full": "2158.0",
+                "enron-triangle-count": "1710.0",
+                "enron-1-path-full": "129.0",
+                "enron-1-path-count": "105.0",
+                "enron-2-path-full": "8782.0",
+                "enron-2-path-count": "5313.0",
+                "query1": "Timeout",
+                "query2": "Timeout",
+                "query3": "Timeout",
+                "query4": "Timeout",
+                "query5": "Timeout"
+            },
+            {
+                "snap_timeout": true,
+                "imdb_timeout": true,
+                "repository": "EA21-05",
+                "preprocessing time (ms)": "N/A",
+                "execution time (ms)": "Timeout",
+                "submission time": "08/05/2021 00:00:00",
+                "update time": "27/05/2021 11:44:47",
+                "timestamp": "1620546287",
+                "facebook-triangle-count": "Timeout",
+                "wiki-triangle-count": "Timeout",
+                "enron-triangle-count": "Timeout",
+                "twitter-triangle-count": "Timeout",
+                "facebook-triangle-full": "Timeout",
+                "wiki-triangle-full": "Timeout",
+                "enron-triangle-full": "Timeout",
+                "twitter-triangle-full": "Timeout",
+                "facebook-1-path-count": "Timeout",
+                "wiki-1-path-count": "Timeout",
+                "enron-1-path-count": "Timeout",
+                "twitter-1-path-count": "Timeout",
+                "facebook-1-path-full": "Timeout",
+                "wiki-1-path-full": "Timeout",
+                "enron-1-path-full": "Timeout",
+                "twitter-1-path-full": "Timeout",
+                "facebook-2-path-count": "Timeout",
+                "wiki-2-path-count": "Timeout",
+                "enron-2-path-count": "Timeout",
+                "twitter-2-path-count": "Timeout",
+                "facebook-2-path-full": "Timeout",
+                "wiki-2-path-full": "Timeout",
+                "enron-2-path-full": "Timeout",
+                "twitter-2-path-full": "Timeout",
+                "query1": "Timeout",
+                "query2": "Timeout",
+                "query3": "Timeout",
+                "query4": "Timeout",
+                "query5": "Timeout",
+            },
             {
                 "repository": "Postgres (8 threads)",
                 "preprocessing time (ms)": "0",
@@ -90,10 +178,17 @@ var app = new Vue({
         snap_queries: ["triangle-full", "triangle-count", "1-path-full", "1-path-count", "2-path-full", "2-path-count"],
         snap_datasets: ["facebook", "twitter", "wiki", "enron"],
         cyclic_queries: ["facebook-triangle-full", "facebook-triangle-count", "twitter-triangle-full", "twitter-triangle-count", "wiki-triangle-full", "wiki-triangle-count", "enron-triangle-full", "enron-triangle-count", ],
+        snap_acyclic_queries: ["facebook-1-path-full","facebook-1-path-count","facebook-2-path-full","facebook-2-path-count","twitter-1-path-full","twitter-1-path-count","twitter-2-path-full","twitter-2-path-count","wiki-1-path-full","wiki-1-path-count","wiki-2-path-full","wiki-2-path-count","enron-1-path-full","enron-1-path-count","enron-2-path-full","enron-2-path-count",],
+        imdb_acyclic_queries: ['query1', 'query2', 'query3', 'query4', 'query5']
     },
     computed: {
         formatted_students: function() {
             const result = this.students.sort((a,b) => {
+                if (a.snap_timeout || a.imdb_timeout) {
+                    return 1
+                } else if (b.snap_timeout || b.imdb_timeout) {
+                    return -1
+                }
                 return a['execution time (ms)'] - b['execution time (ms)']
             }).map(s => {
                 if (s.repository.startsWith("Postgres")) {
@@ -101,16 +196,18 @@ var app = new Vue({
                         ...s,
                         ['preprocessing time (ms)']: "N/A",
                         ['execution time (ms)']: this.numberWithCommas(s['execution time (ms)']),
-                        cyclic_execution: this.numberWithCommas(this.cyclic_queries.map(q => s[q]).reduce((a,b) => parseInt(a) + parseInt(b), 0)),
-                        acyclic_execution: this.numberWithCommas(parseInt(s['execution time (ms)']) - this.cyclic_queries.map(q => s[q]).reduce((a,b) => parseInt(a) + parseInt(b), 0)),
+                        cyclic_execution: this.cyclic_queries.map(q => s[q]).reduce((a,b) => parseInt(a) + parseInt(b), 0),
+                        snap_acyclic_execution: this.snap_acyclic_queries.map(q => s[q]).reduce((a,b) => parseInt(a) + parseInt(b), 0),
+                        imdb_acyclic_execution: this.imdb_acyclic_queries.map(q => s[q]).reduce((a,b) => parseInt(a) + parseInt(b), 0),
                     }
                 } else 
                 return {
                     ...s,
                     ['preprocessing time (ms)']: this.numberWithCommas(s['preprocessing time (ms)']),
                     ['execution time (ms)']: this.numberWithCommas(this.numberWithCommas(s['execution time (ms)'])),
-                    cyclic_execution: this.numberWithCommas(this.cyclic_queries.map(q => s[q]).reduce((a,b) => parseInt(a) + parseInt(b), 0)),
-                        acyclic_execution: this.numberWithCommas(parseInt(s['execution time (ms)']) - this.cyclic_queries.map(q => s[q]).reduce((a,b) => parseInt(a) + parseInt(b), 0)),
+                    cyclic_execution: this.cyclic_queries.map(q => s[q]).reduce((a,b) => parseInt(a) + parseInt(b), 0),
+                        snap_acyclic_execution: this.snap_acyclic_queries.map(q => s[q]).reduce((a,b) => parseInt(a) + parseInt(b), 0),
+                        imdb_acyclic_execution: this.imdb_acyclic_queries.map(q => s[q]).reduce((a,b) => parseInt(a) + parseInt(b), 0),
                 }
             })
 

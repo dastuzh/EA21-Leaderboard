@@ -11,8 +11,9 @@
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
   <!-- Core theme CSS (includes Bootstrap)-->
   <link href="css/styles.css" rel="stylesheet" />
+  <script src="./js/numeral.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
+  
 </head>
 
 <body>
@@ -63,8 +64,9 @@
             <th scope="col">Repository</th>
             <th class="text-right " scope="col">Preprocessing</th>
             <th class="text-right " scope="col">All Queries</th>
-            <th class="text-right " scope="col">Cyclic Queries</th>
-            <th class="text-right " scope="col">Acyclic Queries</th>
+            <th class="text-right " scope="col">Cyclic</th>
+            <th class="text-right " scope="col">SNAP Acyclic</th>
+            <th class="text-right " scope="col">IMDB Acyclic</th>
             <th class="text-right " scope="col">Submission</th>
             <th class="text-right " scope="col">Entry Update</th>
           </tr>
@@ -73,10 +75,11 @@
           <tr v-for="(student, i) in formatted_students">
             <th scope="row">{{i+1}}</th>
             <td>{{student.repository}}</td>
-            <td class="text-right ">{{student['preprocessing time (ms)']}}</td>
-            <td class="text-right ">{{student['execution time (ms)']}}</td>
-            <td class="text-right ">{{student['cyclic_execution']}}</td>
-            <td class="text-right ">{{student['acyclic_execution']}}</td>
+            <td class="text-right ">{{student['preprocessing time (ms)'] | formatNumber}}</td>
+            <td class="text-right ">{{student['execution time (ms)'] | formatNumber}}</td>
+            <td class="text-right ">{{student['cyclic_execution'] | formatNumber}}</td>
+            <td class="text-right ">{{student['snap_acyclic_execution'] | formatNumber}}</td>
+            <td class="text-right ">{{student['imdb_acyclic_execution'] | formatNumber}}</td>
             <td class="text-right ">{{student['submission time']}}</td>
             <td class="text-right ">{{student['update time']}}</td>
           </tr>

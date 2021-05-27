@@ -11,6 +11,7 @@
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
   <!-- Core theme CSS (includes Bootstrap)-->
   <link href="css/styles.css" rel="stylesheet" />
+  <script src="./js/numeral.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 </head>
@@ -56,17 +57,17 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(student, i) in formatted_students.sort((a,b) => a.query1 +a.query2+a.query3+a.query4+a.query5-b.query1-b.query2-b.query3-b.query4-b.query5)">
+          <tr v-for="(student, i) in formatted_students.sort((a,b) => a.imdb_timeout ? 1 : (b.imdb_timeout ? -1 : parseInt(a.query1) +parseInt(a.query2)+parseInt(a.query3)+parseInt(a.query4)+parseInt(a.query5)-parseInt(b.query1)-parseInt(b.query2)-parseInt(b.query3)-parseInt(b.query4)-parseInt(b.query5)))">
             <th scope="row">{{i+1}}</th>
             <td>{{student.repository}}</td>
             <td class="text-right ">
-              {{parseInt(student['query1'] ) + parseInt(student['query2'] ) + parseInt(student['query3'] ) + parseInt(student['query4'] ) + parseInt(student['query5'])}}
+              {{parseInt(student['query1'] ) + parseInt(student['query2'] ) + parseInt(student['query3'] ) + parseInt(student['query4'] ) + parseInt(student['query5']) | formatNumber}}
               </th>
-            <td class="text-right ">{{student['query1']}}</td>
-            <td class="text-right ">{{student['query2']}}</td>
-            <td class="text-right ">{{student['query3']}}</td>
-            <td class="text-right ">{{student['query4']}}</td>
-            <td class="text-right ">{{student['query5']}}</td>
+            <td class="text-right ">{{student['query1'] | formatNumber}}</td>
+            <td class="text-right ">{{student['query2'] | formatNumber}}</td>
+            <td class="text-right ">{{student['query3'] | formatNumber}}</td>
+            <td class="text-right ">{{student['query4'] | formatNumber}}</td>
+            <td class="text-right ">{{student['query5'] | formatNumber}}</td>
           </tr>
         </tbody>
       </table>
