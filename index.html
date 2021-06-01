@@ -48,10 +48,10 @@
       <p>The table shows the preprocessing time (ms) and the execution time (ms) of the queries on our private
         datasets. The preprocessing time includes the time for reading data, parsing data and constructing the factors.
         The execution time includes time for evaluating the queries and outputting the query results. The columns SNAP queries, SNAP Cyclic and SNAP acyclic show the evaluation time of all snap queries, cyclic snap
-        queries and acyclic snap queries, respectively. <strong>We use only the execution time to assess the performance of your code. </strong>
+        queries and acyclic snap queries, respectively. <strong>We use only the execution time to assess the performance of your code. </strong> (the preprocessing time is ignored)
       </p>
       <p>
-        The table is ordered by the your <strong>execution time</strong> of all snap queries in ascending order. The time "X" means the queries require more than four hours to complete on our machine. For these cases, we tested their correctness on smaller datasets.
+        The table is ordered by the <strong>execution time</strong> of all snap queries in ascending order. The time "X" means the queries require more than four hours to complete on our machine. For these cases, we tested their correctness on smaller datasets.
          Check the execution
         of individual queries at pages <a href="./snap.html">SNAP</a> and <a href="./imdb.html">IMDB</a>. </p>
     </div>
@@ -62,24 +62,26 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Repository</th>
-            <th class="text-right " scope="col">Preprocessing</th>
-            <th class="text-right " scope="col">SNAP Queries</th>
+            
+            <th class="text-right " scope="col">SNAP Total</th>
             <th class="text-right " scope="col">SNAP Cyclic</th>
             <th class="text-right " scope="col">SNAP Acyclic</th>
             <th class="text-right " scope="col">Submission</th>
             <th class="text-right " scope="col">Entry Update</th>
+            <th class="text-right " scope="col">Preprocessing</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="(student, i) in formatted_students">
             <th scope="row">{{i+1}}</th>
             <td>{{student.repository}}</td>
-            <td class="text-right ">{{student['preprocessing time (ms)'] | formatNumber}}</td>
+            
             <td class="text-right ">{{student['snap_execution'] | formatNumber}}</td>
             <td class="text-right ">{{student['cyclic_execution'] | formatNumber}}</td>
             <td class="text-right ">{{student['snap_acyclic_execution'] | formatNumber}}</td>
             <td class="text-right ">{{student['submission time']}}</td>
             <td class="text-right ">{{student['update time']}}</td>
+            <td class="text-right ">{{student['preprocessing time (ms)'] | formatNumber}}</td>
           </tr>
         </tbody>
       </table>
