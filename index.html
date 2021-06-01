@@ -45,14 +45,14 @@
       <p>We check your code on our private datasets every midnight. Our feedback to your code will be uploaded to your
         GitHub repository. If your code is correct, we will upload your benchmarking results to this leaderboard. The
         first time you check in your code, please send me an email so we know you have finished your program. We will then manually run it on the benchmarking machine to make sure it runs smoothly.</p>
-      <p>The table shows the total preprocessing time (ms) and the execution time (ms) of the queries on our private
+      <p>The table shows the preprocessing time (ms) and the execution time (ms) of the queries on our private
         datasets. The preprocessing time includes the time for reading data, parsing data and constructing the factors.
-        The execution time includes time for evaluating the queries and outputting the query results. The columns
-        all queries, cyclic queries and acyclic queries show the evaluation time of all queries, cyclic
-        queries and acyclic queries, respectively. <strong>We use only the execution time to assess the performance of your code. </strong>
+        The execution time includes time for evaluating the queries and outputting the query results. The columns SNAP queries, SNAP Cyclic and SNAP acyclic show the evaluation time of all snap queries, cyclic snap
+        queries and acyclic snap queries, respectively. <strong>We use only the execution time to assess the performance of your code. </strong>
       </p>
       <p>
-        The table is ordered by the your total <strong>execution time</strong> in ascending order. Check the execution
+        The table is ordered by the your <strong>execution time</strong> of all snap queries in ascending order. The time "X" means the queries require more than four hours to complete on our machine. For these cases, we tested their correctness on smaller datasets.
+         Check the execution
         of individual queries at pages <a href="./snap.html">SNAP</a> and <a href="./imdb.html">IMDB</a>. </p>
     </div>
     <br>
@@ -63,10 +63,9 @@
             <th scope="col">#</th>
             <th scope="col">Repository</th>
             <th class="text-right " scope="col">Preprocessing</th>
-            <th class="text-right " scope="col">All Queries</th>
-            <th class="text-right " scope="col">Cyclic</th>
+            <th class="text-right " scope="col">SNAP Queries</th>
+            <th class="text-right " scope="col">SNAP Cyclic</th>
             <th class="text-right " scope="col">SNAP Acyclic</th>
-            <th class="text-right " scope="col">IMDB Acyclic</th>
             <th class="text-right " scope="col">Submission</th>
             <th class="text-right " scope="col">Entry Update</th>
           </tr>
@@ -76,10 +75,9 @@
             <th scope="row">{{i+1}}</th>
             <td>{{student.repository}}</td>
             <td class="text-right ">{{student['preprocessing time (ms)'] | formatNumber}}</td>
-            <td class="text-right ">{{student['execution time (ms)'] | formatNumber}}</td>
+            <td class="text-right ">{{student['snap_execution'] | formatNumber}}</td>
             <td class="text-right ">{{student['cyclic_execution'] | formatNumber}}</td>
             <td class="text-right ">{{student['snap_acyclic_execution'] | formatNumber}}</td>
-            <td class="text-right ">{{student['imdb_acyclic_execution'] | formatNumber}}</td>
             <td class="text-right ">{{student['submission time']}}</td>
             <td class="text-right ">{{student['update time']}}</td>
           </tr>
