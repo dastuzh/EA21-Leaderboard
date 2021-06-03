@@ -220,10 +220,47 @@ const students=[
         "query3": "35651.0",
         "query4": "27375.0",
         "query5": "38720.0"
+    },
+    {
+        "repository": "EA21-06",
+        "preprocessing time (ms)": "47266.0",
+        "execution time (ms)": "76333.0",
+        "submission time": "03/06/2021 11:40:25",
+        "update time": "03/06/2021 15:32:46",
+        "timestamp": "1622727166",
+        "facebook-triangle-full": "3911.0",
+        "facebook-triangle-count": "1008.0",
+        "facebook-1-path-full": "55.0",
+        "facebook-1-path-count": "14.0",
+        "facebook-2-path-full": "4890.0",
+        "facebook-2-path-count": "1250.0",
+        "twitter-triangle-full": "8376.0",
+        "twitter-triangle-count": "2905.0",
+        "twitter-1-path-full": "558.0",
+        "twitter-1-path-count": "179.0",
+        "twitter-2-path-full": "23999.0",
+        "twitter-2-path-count": "7101.0",
+        "wiki-triangle-full": "401.0",
+        "wiki-triangle-count": "165.0",
+        "wiki-1-path-full": "33.0",
+        "wiki-1-path-count": "9.0",
+        "wiki-2-path-full": "1131.0",
+        "wiki-2-path-count": "326.0",
+        "enron-triangle-full": "2255.0",
+        "enron-triangle-count": "832.0",
+        "enron-1-path-full": "127.0",
+        "enron-1-path-count": "38.0",
+        "enron-2-path-full": "13129.0",
+        "enron-2-path-count": "3641.0",
+        "query1": "",
+        "query2": "",
+        "query3": "",
+        "query4": "",
+        "query5": ""
     }
 ]
         
-        const last_update_time='03/06/2021 07:28:27'
+        const last_update_time='03/06/2021 15:33:23'
 
 
 
