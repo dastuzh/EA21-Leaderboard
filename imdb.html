@@ -57,7 +57,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(student, i) in formatted_students.sort((a,b) => a.imdb_timeout ? 1 : (b.imdb_timeout ? -1 : parseInt(a.query1) +parseInt(a.query2)+parseInt(a.query3)+parseInt(a.query4)+parseInt(a.query5)-parseInt(b.query1)-parseInt(b.query2)-parseInt(b.query3)-parseInt(b.query4)-parseInt(b.query5)))">
+          <tr v-for="(student, i) in formatted_students.filter(a => a.query1).sort((a,b) => a.imdb_timeout ? 1 : (b.imdb_timeout ? -1 : parseInt(a.query1) +parseInt(a.query2)+parseInt(a.query3)+parseInt(a.query4)+parseInt(a.query5)-parseInt(b.query1)-parseInt(b.query2)-parseInt(b.query3)-parseInt(b.query4)-parseInt(b.query5)))">
             <th scope="row">{{i+1}}</th>
             <td>{{student.repository}}</td>
             <td class="text-right ">
