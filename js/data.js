@@ -334,13 +334,13 @@ const students=[
     },
     {
         "repository": "EA21-04",
-        "preprocessing time (ms)": "84871.47188186646",
-        "execution time (ms)": "3406432.315826416",
+        "preprocessing time (ms)": "85057.9833984375",
+        "execution time (ms)": "3412998.6045360565",
         "submission time": "10/06/2021 19:06:09",
-        "update time": "21/06/2021 10:11:50",
-        "timestamp": "1624263110",
+        "update time": "21/06/2021 10:15:41",
+        "timestamp": "1624263341",
         "facebook-triangle-full": "14385.188817977903",
-        "facebook-triangle-count": "",
+        "facebook-triangle-count": "6566.288709640503",
         "facebook-1-path-full": "216.3348197937012",
         "facebook-1-path-count": "160.93087196350098",
         "facebook-2-path-full": "18946.755170822144",
@@ -371,7 +371,7 @@ const students=[
     }
 ]
         
-        const last_update_time='21/06/2021 10:12:18'
+        const last_update_time='21/06/2021 10:15:47'
 
 
 
